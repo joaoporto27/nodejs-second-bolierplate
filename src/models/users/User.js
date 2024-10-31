@@ -1,6 +1,3 @@
-import usuariosRoutes from "../../routes/usuarios.routes.js";
-import User from "./User.js";
-
 class User {
   constructor(name, email, password) {
     this.id = this.generateId();
