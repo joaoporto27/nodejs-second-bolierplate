@@ -1,9 +1,11 @@
 class UsersRepository {
     constructor () {
-        this.users = [];
+        this.Users = [];
     }
-    
+
     getAllUsers() {
-        return this.users;
+        return this.Users;
       }
 }
+
+export default UsersRepository;
