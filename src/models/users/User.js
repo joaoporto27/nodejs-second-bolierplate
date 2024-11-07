@@ -1,9 +1,10 @@
-class User {
-  constructor(name, email, password) {
+class Manutencao {
+  constructor(id, modeloVeiculo, quilometragem, status, problemasReportados) {
     this.id = this.generateId();
-    this.name = name;
-    this.email = email;
-    this.password = password;
+    this.modeloVeiculo = modeloVeiculo;
+    this.quilometragem = quilometragem;
+    this.status = status;
+    this.problemasReportados = problemasReportados
   }
 
   generateId(){
@@ -11,4 +12,4 @@ class User {
   }
 }
 
-export default User;
+export default Manutencao;
