@@ -2,21 +2,21 @@ import { Router } from "express";
 import UsersRepository from "../models/users/UsersRepository.js";
 
 
-const usuariosRoutes = Router();
+const carrosRoutes = Router();
 const usersList = new UsersRepository();
 
-usuariosRoutes.get("/", (req, res) => {
-    const usuarios = usersList.getAllUsers();
+carrosRoutes.get("/", (req, res) => {
+    const carros = usersList.getAllUsers();
 
     return res.status(200).json({
-        message: usuarios.length == 0
-        ? "Não há usuários cadastrados"
-        : `Total de usuários: ${usuarios.length}`,
-    usuarios,
+        message: carros.length == 0
+        ? "Não há carros cadastrados"
+        : `Total de usuários: ${carros.length}`,
+    carros,
     })
 })
 
-usuariosRoutes.post("/", (req, res) => {
+carrosRoutes.post("/", (req, res) => {
     const { name, email, password } = req.body;
 
     const user = usersList.addUser(name, email, password);
@@ -27,7 +27,7 @@ usuariosRoutes.post("/", (req, res) => {
     });
   });
 
-  usuariosRoutes.get("/:id", (req, res) => {
+  carrosRoutes.get("/:id", (req, res) => {
     const { id } = req.params;
 
     const user = usersList.getUserById(id);
@@ -44,7 +44,7 @@ usuariosRoutes.post("/", (req, res) => {
     });
   });
   
-  usuariosRoutes.put("/:id", (req, res) => {
+  carrosRoutes.put("/:id", (req, res) => {
     const { id } = req.params;
     const { name, email, password } = req.body;
     
@@ -62,7 +62,7 @@ usuariosRoutes.post("/", (req, res) => {
     });
   });
   
-  usuariosRoutes.delete("/:id", (req, res) => {
+  carrosRoutes.delete("/:id", (req, res) => {
     const { id } = req.params;
     const user = usersList.deleteUser(id);
     if (!user) {
@@ -75,4 +75,4 @@ usuariosRoutes.post("/", (req, res) => {
       user,
     });
   });
-export default usuariosRoutes;
+export default carrosRoutes;
