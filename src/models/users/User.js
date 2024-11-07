@@ -1,4 +1,4 @@
-class Manutencao {
+class Carros {
   constructor(id, modeloVeiculo, quilometragem, status, problemasReportados) {
     this.id = this.generateId();
     this.modeloVeiculo = modeloVeiculo;
@@ -12,4 +12,4 @@ class Manutencao {
   }
 }
 
-export default Manutencao;
+export default Carros;

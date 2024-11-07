@@ -1,20 +1,20 @@
-import User from "./User.js";
+import Carros from "./User.js";
 
-class UsersRepository {
+class CarrosRepository {
     constructor() {
-        this.users = [];
+        this.carros = [];
     }
 
-    getAllUsers() {
-        return this.users;
+    getAllCarros() {
+        return this.carros;
     }
 
-    addUser(name, email, password) {
-        const newUser = new User(name, email, password);
+    addCarros(modeloVeiculo, quilometragem, status, problemasReportados) {
+        const newCarro = new Carros(modeloVeiculo, quilometragem, status, problemasReportados);
 
-        this.users.push(newUser);
+        this.carros.push(newCarro);
 
-        return newUser;
+        return newCarro;
     }
 
     getUserById(id) {
@@ -52,4 +52,4 @@ class UsersRepository {
     }
 }
 
-export default UsersRepository;
+export default CarrosRepository;

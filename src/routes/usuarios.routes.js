@@ -1,29 +1,29 @@
 import { Router } from "express";
-import UsersRepository from "../models/users/UsersRepository.js";
+import CarrosRepository from "../models/users/UsersRepository.js";
 
 
 const carrosRoutes = Router();
-const usersList = new UsersRepository();
+const carrosList = new CarrosRepository();
 
 carrosRoutes.get("/", (req, res) => {
-    const carros = usersList.getAllUsers();
+    const carros = carrosList.getAllCarros();
 
     return res.status(200).json({
         message: carros.length == 0
         ? "Não há carros cadastrados"
-        : `Total de usuários: ${carros.length}`,
+        : `Total de carros: ${carros.length}`,
     carros,
     })
 })
 
 carrosRoutes.post("/", (req, res) => {
-    const { name, email, password } = req.body;
+    const { modeloVeiculo, quilometragem, status, problemasReportados } = req.body;
 
-    const user = usersList.addUser(name, email, password);
+    const carro = carrosList.addCarros( modeloVeiculo, quilometragem, status, problemasReportados);
   
     return res.status(201).json({
-      message: "Usuário cadastrado com sucesso!",
-      user,
+      message: "Carro cadastrado com sucesso!",
+      carro,
     });
   });
 
